@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Just add javascript</title>
+    <style media="screen">
+      /* basic layout */
+
+      body {
+        font-size: 120%;
+        font-family: sans-serif;
+        max-width: 40em;
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding right: 1rem;
+      }
+
+      nav {
+        text-align: center;
+        padding: 0.5em 0;
+        border-bottom: 2px solid;
+      }
+
+      nav li {
+        display: inline-block;
+        margin: 0 0.5em;
+      }
+      /* view visibility logic and animation */
+
+      main>* {
+        display: none;
+      }
+
+      main>*:last-child {
+        display: block;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1)
+        }
+        50% {
+          transform: scale(1.05)
+        }
+        100% {
+          transform: scale(1)
+        }
+      }
+
+      main>*:target {
+        display: block;
+        animation: pulse 0.5s linear 1;
+      }
+
+      main>*:target~* {
+        display: none;
+      }
+    </style>
+
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+  <body>
+
+    <nav role="navigation">
+      <ul>
+        <li><a href="#the-default-view">hello</a></li>
+        <li><a href="#some-view">some view</a></li>
+        <li><a href="#another-view">another view</a></li>
+      </ul>
+    </nav>
+
+    <main role="main">
+
+      <div id="some-view">
+        <h1>Some view</h1>
+        <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
+      </div>
+
+      <div id="another-view">
+        <h1>Another view</h1>
+        <p>This is one of any number of views that are reachable by linking to its <code>id</code> / hash identifier.</p>
+      </div>
+
+      <div id="the-default-view">
+        <h1>hello world</h1>
+        <p>This view is visible by default when the user first arrives at the app.</p>
+      </div>
+      
+    </main>
+
+    <script src="js/index.js"></script>
+
+  </body>
+
+</html>
